@@ -1,0 +1,16 @@
+name: Check pull request
+
+# Builds contributions without any secrets. Nothing is published.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Build
+        run: ./scripts/build.sh
